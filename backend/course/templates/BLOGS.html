@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: #75d719;
+            font-family: 'Jura', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .home-button {
+            background-color: #75d719;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 16px;
+            background-color: rgba(117, 211, 25, 0.1);
+            color: white;
+        }
+        .blog-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .blog {
+            border: 1px solid #75d719;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            background-color: rgba(117, 211, 25, 0.1);
+            flex: 0 0 calc(33.333% - 20px);
+            box-sizing: border-box;
+            color: white;
+            cursor: pointer; /* Make blogs clickable for smooth scrolling */
+        }
+        h2 {
+            margin: 0;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .typing-effect {
+            align-items: center;
+            font-size: 2em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid white; /* Cursor effect */
+            animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 30em; } /* Adjust based on text length */
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Blog Entries</h1>
+    <button class="home-button" onclick="window.location.href='http://localhost:5173/'">Home</button>
+</div>
+
+<div class="search-container">
+    <input type="text" class="search-bar" placeholder="Search">
+</div>
+<br>
+<div>
+    <div class="typing-effect">This page show's blogs reported by victims of 'Phishing'...</div>
+</div>
+<br>
+<div class="blog-container">
+    {% if blogs %}    
+        {% for blog in blogs %}
+        <div class="blog">
+            <h2>{{ blog.name }} at {{ blog.company }}</h2>
+            <p><strong>Attack Type:</strong> {{ blog.phishing }}</p>
+            <p>{{ blog.message }}</p>
+        </div>
+    {% empty %}
+        <p>No blog entries available.</p>
+    {% endfor %}
+    {% endif %}
+    <div class="blog">
+        <h2>Aisha Al Maktoum at Emirates Airlines</h2>
+        <p><strong>Attack Type:</strong> Email Phishing</p>
+        <p>I received an email at Emirates Airlines claiming to be from HR, stating there was an "urgent update" to our employee benefits. It included a link to a "secure portal." The email looked very professional, but I noticed the link was slightly different from our official HR website. I hovered over it and saw a strange URL. I decided to contact HR directly, and they confirmed it was a Phishing attempt.  I'm glad I was cautious.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Khalid Ibrahim at Saudi Aramco</h2>
+        <p><strong>Attack Type:</strong> Smishing</p>
+        <p>I received a text message on my phone claiming I'd won a luxury car from a "Saudi promotion." It asked me to click a link to claim my prize. I knew it was too good to be true.  The link looked suspicious, and I hadn't entered any contest. I checked online and found similar Smishing scams targeting people in Saudi Arabia. I deleted the message and blocked the sender. It was a clear attempt to steal my information.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Fatima Hassan at Etisalat</h2>
+        <p><strong>Attack Type:</strong> Vishing</p>
+        <p>I received a call at Etisalat from someone claiming to be from our IT department. They said my account had been "compromised" and needed my password to "verify" my identity. I knew this was a red flag. Our IT department would never ask for my password over the phone. I hung up and reported the call to our security team. It was a Vishing scam trying to get my login credentials.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Omar Youssef at Qatar Airways</h2>
+        <p><strong>Attack Type:</strong> Spear Phishing</p>
+        <p>I received an email at Qatar Airways seemingly from a colleague in a different department. It asked me to open an attached "urgent document" related to a joint project. The email looked genuine, but I wasn't expecting any documents from that colleague. I contacted him directly to confirm, and he said he hadn't sent anything. It was a Spear Phishing attack, likely targeting specific employees. I'm glad I checked before opening the attachment.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Layla Ali at Dubai Electricity and Water Authority (DEWA)</h2>
+        <p><strong>Attack Type:</strong> Smishing</p>
+        <p>I received a message on WhatsApp from an unknown number claiming to be from DEWA. It said my electricity bill was overdue and I needed to pay immediately through a provided link to avoid disconnection. The message was alarming, but I always pay my DEWA bills online through the official website. I checked my DEWA account, and everything was fine. It was a WhatsApp Phishing attempt. I blocked the number and reported it.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Yousef Al Thani at Abu Dhabi National Oil Company (ADNOC)</h2>
+        <p><strong>Attack Type:</strong> Smishing</p>
+        <p>I received an SMS saying I had won a free trip to Europe, sponsored by ADNOC.  It asked me to click a link to claim the prize. I was immediately suspicious. I hadn't participated in any contest, and ADNOC rarely does such promotions via SMS. I checked the link, and it looked very unprofessional. It was clearly a Smishing attempt. I deleted the message and warned my family about it.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Nadia Saleh at Jumeirah Group</h2>
+        <p><strong>Attack Type:</strong> Vishing</p>
+        <p>Someone called me at Jumeirah Group pretending to be from my bank's fraud department. They said there were suspicious transactions on my account and needed my PIN to "cancel" them. They were very persuasive, but I knew my bank would never ask for my PIN over the phone. I hung up and called my bank directly. They confirmed it was a Vishing scam. I'm so glad I didn't give them my PIN.</p>
+    </div>
+    <div class="blog">
+        <h2>Anika Sharma at TechMahindra</h2>
+        <p><strong>Attack Type:</strong> Smishing</p>
+        <p>I received a message on WhatsApp claiming to be from Amazon, saying I'd won a ₹5,000 gift card. It included a link to claim it.  I was initially excited, but then I realized I hadn't participated in any contest.  Plus, the link looked suspicious. I checked Amazon's website directly and found nothing about the offer. It was clearly a Smishing attempt trying to steal my personal information.  I deleted the message and blocked the sender.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Rohan Gupta at Infosys</h2>
+        <p><strong>Attack Type:</strong> Email Phishing</p>
+        <p>I received an email at Infosys supposedly from our HR department, informing me about a "mandatory training" I needed to complete.  It included a link to the "training portal."  However, the email had several grammatical errors, and the sender's address was slightly different from the official HR email. I hovered over the link without clicking and noticed it pointed to a strange website.  I reported the suspicious email to our IT security team. It was a classic Email Phishing attempt.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Priya Patel at Wipro</h2>
+        <p><strong>Attack Type:</strong> Vishing</p>
+        <p>I received a call at Wipro from someone claiming to be from my bank. They said my debit card had been blocked due to "suspicious activity" and asked for my card number and CVV to "verify" my identity.  I immediately became suspicious. My bank would never ask for such sensitive information over the phone. I hung up and called my bank directly using the number on their official website. They confirmed there was no issue with my card and that it was indeed a Vishing scam. It was quite scary!</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Vikram Singh at HCL Technologies</h2>
+        <p><strong>Attack Type:</strong> Spear Phishing</p>
+        <p>I received an email at HCL Technologies that looked like it was from a senior manager in my department. It requested me to urgently transfer funds to a new vendor account, citing a "confidential business deal." The email used the manager's name and writing style, but I felt uneasy. I decided to call the manager directly to confirm. He had absolutely no idea about the email. It was a sophisticated Spear Phishing attack targeting me specifically. I'm glad I double-checked before taking any action.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Neha Reddy at Tata Consultancy Services</h2>
+        <p><strong>Attack Type:</strong> Phishing</p>
+        <p>A friend on WhatsApp messaged me saying they were in urgent need of money and asked me to transfer ₹10,000 to a specific Paytm number.  They claimed it was a family emergency.  I was about to send the money when I decided to call my friend. They were shocked and said they hadn't sent any such message. Their account had been hacked! It was a WhatsApp Phishing scam. I'm so relieved I verified before sending any money.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Arjun Kumar at Reliance Industries</h2>
+        <p><strong>Attack Type:</strong> Smishing</p>
+        <p>I got an SMS saying I had won a brand new Maruti Suzuki car, and to claim it, I needed to click on a link and provide my details.  It sounded too good to be true, and I didn't remember entering any contest. The link looked suspicious, so I checked online for similar scams.  Turns out, it's a common SMS Phishing (Smishing) trick.  I deleted the message and warned my family about it.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Deepika Joshi at Larsen & Toubro</h2>
+        <p><strong>Attack Type:</strong> Vishing</p>
+        <p>Someone called me at Larsen & Toubro pretending to be from the Income Tax Department. They said I had a tax refund pending and needed my bank account details to process it. They were very pushy and tried to create a sense of urgency. I knew the Income Tax Department never asks for such information over the phone. I told them I would contact them through the official website.  It was clearly a Vishing scam, and I'm glad I didn't fall for their tricks.</p>
+    </div>
+    <div class="blog">
+        <h2>John Doe at Acme Corp</h2>
+        <p><strong>Attack Type:</strong> Spear Phishing</p>
+        <p>My heart pounded when I saw the email subject: 'Overdue Invoice - Immediate Action Required' from a supposed vendor for Acme Corp. As Accounts Payable, I'm used to deadlines, but this felt different. The email, supposedly from a vendor we work with regularly, threatened legal action. I almost clicked the link to download the 'invoice' without thinking, but something stopped me. The grammar was slightly off, and our usual contact hadn't sent it. I decided to call the vendor directly. They confirmed they hadn't sent any such email! I realized I'd almost been a victim of Spear Phishing – a targeted attack disguised as a legitimate communication. I reported the email to IT immediately.</p>
+    </div>
+    
+    <div class="blog">
+        <h2>Jane Smith at Beta Industries</h2>
+        <p><strong>Attack Type:</strong> Email Phishing</p>
+        <p>I was swamped with a deadline at Beta Industries when a pop-up email from 'IT Help Desk' flashed on my screen. It said my password had expired and needed resetting now. Annoyed but compliant, I clicked the link. The page looked exactly like our company login. I entered my credentials, but nothing happened. A few minutes later, the real IT department called, asking if I'd tried to reset my password. Confused, I explained the email. They told me it was Email Phishing – a mass email trying to trick employees into revealing information. They helped me secure my account. I felt so stupid for falling for it, but thankfully, I caught it in time.</p>
+    </div>
+    <div class="blog">
+        <h2>David Lee at Gamma Solutions</h2>
+        <p><strong>Attack Type:</strong> Email Phishing</p>
+        <p>I couldn't believe my luck! An email proclaimed I'd won a luxury vacation! All I had to do was click the link and enter my details. I was initially ecstatic, but then doubts crept in. The email address was generic, and I hadn't even entered any contest. The 'congratulations' message felt a bit too over the top. I decided to search the company online. Turns out, it was a known Email Phishing scam! I deleted the email, realizing how close I'd come to giving away all my personal information.</p>
+    </div>
+    <div class="blog">
+        <h2>Sarah Jones at Delta Dynamics</h2>
+        <p><strong>Attack Type:</strong> Smishing</p>
+        <p>My phone buzzed with a text: 'Urgent: Suspicious activity on your Delta Dynamics bank account. Verify transactions now: [suspicious link].' My heart raced. I almost clicked the link, but then I remembered my bank never contacts me via text for these things. I opened my banking app directly and checked my transactions. Everything was fine. That text was Smishing – phishing via SMS – preying on my fear of financial trouble.</p>
+    </div>
+    <div class="blog">
+        <h2>Richard Roe at Zeta Corp</h2>
+        <p><strong>Attack Type:</strong> Whaling</p>
+        <p>I received a call at Zeta Corp. from someone claiming to be our CEO. He was very insistent that I immediately transfer funds to a new vendor account. He said it was highly confidential and not to discuss it with anyone. The pressure was intense, and he even used the CEO's common phrases.  Something felt off. I decided to call the CEO's assistant to confirm. She was shocked. It was a Whaling attack – targeting high-profile individuals to gain access to sensitive information or funds. I immediately alerted our security team.</p>
+    </div>
+    <div class="blog">
+        <h2>Michael Brown at Epsilon Technologies</h2>
+        <p><strong>Attack Type:</strong> Spear Phishing</p>
+        <p>I'd been job hunting for weeks when I received an email from a 'recruiter' for a top company. The job description was perfect, and the salary was way higher than I expected. I was so excited, but something felt off. The email, while professional-looking, lacked specific details about the company. I decided to look up the recruiter on LinkedIn. No profile existed. It was Spear Phishing – a targeted attack, likely because I'd recently updated my resume online, trying to steal my information. Disappointed, but relieved I hadn't fallen for it.</p>
+    </div>
+    <div class="blog">
+        <h2>Alice Johnson at Eta Solutions</h2>
+        <p><strong>Attack Type:</strong> Vishing</p>
+        <p>I received a voicemail at Eta Solutions. The message was urgent, claiming to be from our IT department, saying my account had been compromised.  It instructed me to call a specific number immediately to rectify the issue.  The message sounded very official, but I was suspicious. I decided to call our actual IT helpdesk. They confirmed it was a Vishing attempt – phishing via voice call – trying to trick me into revealing my login details. I'm glad I trusted my instincts and didn't fall for it.</p>
+    </div>
+
+</div>
+<script>
+    const searchInput = document.querySelector('.search-bar');
+    const blogContainer = document.querySelector('.blog-container');
+    const blogs = Array.from(blogContainer.querySelectorAll('.blog'));
+
+    // Store ORIGINAL blog DATA (not innerHTML) - CORRECTED!
+    const originalBlogData = blogs.map(blog => ({
+        title: blog.querySelector('h2').textContent,
+        attackType: blog.querySelector('p:nth-of-type(1) strong').textContent,
+        message: blog.querySelector('p:nth-of-type(2)').textContent
+    }));
+
+    searchInput.addEventListener('input', function(event) {
+        const searchTerm = event.target.value.toLowerCase();
+
+        blogs.forEach((blog, index) => {
+            const blogData = originalBlogData[index];
+            const blogText = (blogData.title + blogData.attackType + blogData.message).toLowerCase();
+
+            if (blogText.includes(searchTerm)) {
+                blog.style.display = 'block';
+                blog.innerHTML = `
+                    <h2>${highlightText(blogData.title, searchTerm)}</h2>
+                    <p><strong>Attack Type:</strong> ${highlightText(blogData.attackType, searchTerm)}</p>
+                    <p>${highlightText(blogData.message, searchTerm)}</p>
+                `;
+            } else {
+                blog.style.display = 'none';
+                // Restore to original DATA (not innerHTML)
+                blog.innerHTML = `
+                    <h2>${blogData.title}</h2>
+                    <p><strong>Attack Type:</strong> ${blogData.attackType}</p>
+                    <p>${blogData.message}</p>
+                `;
+            }
+        });
+    });
+
+    function highlightText(text, searchTerm) {
+        if (!searchTerm) return text;
+        const regex = new RegExp(searchTerm, 'gi');
+        return text.replace(regex, `<span class="highlight">${searchTerm}</span>`);
+    }
+
+    blogs.forEach(blog => {
+        blog.addEventListener('click', function() {
+          blog.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+    // Stop the blinking cursor after typing effect is done
+    const typingEffect = document.querySelector('.typing-effect');
+    typingEffect.addEventListener('animationend', () => {
+    typingEffect.style.borderRight = 'none'; // Remove the blinking cursor
+    });
+</script>
+</body>
+</html>
