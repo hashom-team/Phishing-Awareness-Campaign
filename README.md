@@ -1,4 +1,4 @@
-# Phishing Awareness Website
+# Phishing Awareness Campaign 
 
 ## 🚀 Project Overview
 This project is a **Phishing Awareness Campaign Website** designed to educate company employees about phishing attacks. It includes theoretical courses, quiz rooms for testing knowledge, and an AI chatbot for assistance.
@@ -104,5 +104,5 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
 This project is licensed under the **MIT License**.
 
 ---
-💡 *Feel free to update this README as needed!*
+
 
