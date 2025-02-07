@@ -28,7 +28,7 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
    npm install vite --save-dev\n
    pip install django
    ```
-   -For Windows
+   - For Windows
    ```
    pip install django
    pip install djangorestframework\n
@@ -36,7 +36,7 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
    pip install --upgrade djangorestframework\
    ```
    
-   -For Linux
+   - For Linux
    ```
    python --version\n
    python3.12 -m pip --version\n
@@ -60,14 +60,15 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
     npm run dev
    ```
    To start backend
-   -For Windows
    ```
    cd backend
+   ```
+   - For Windows
+   ```
    python manage.py runserver
    ```
-   -For Linux
+   - For Linux
    ```
-   cd backend
    bash runserver.sh
          or
    python3 -m venv venv
