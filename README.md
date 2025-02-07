@@ -27,29 +27,32 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
    npm install
    npm install vite --save-dev\n
    pip install django
-
+   ```
    for windows
+   ```
+   pip install django
    pip install djangorestframework\n
    pip show djangorestframework\n
    pip install --upgrade djangorestframework\
-
+   ```
+   
    for linux
+   ```
    python --version\n
    python3.12 -m pip --version\n
    python3.12 -m ensurepip --default-pip\n
    python3.12 -m pip install djangorestframework\n
    sudo apt install python3-djangorestframework\n
-
    ```
 
-3. **Setup Environment Variables:**
+4. **Setup Environment Variables:**
    Create a `.env` file in the root directory and configure the required variables:
    ```plaintext
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_secret_key
    ```
 
-4. **Run the Application:**
+5. **Run the Application:**
    ```bash
    To start frontend
     cd frontend
