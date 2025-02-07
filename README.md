@@ -70,7 +70,9 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
    - For Linux
    ```
    bash runserver.sh
-         or
+   ```
+      OR
+   ```
    python3 -m venv venv
    source venv/bin/activate
    python manage.py runserver
