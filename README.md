@@ -61,20 +61,20 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
    ```
    To start backend
    -For Windows
-       ```
-       cd backend
-       python manage.py runserver
-       ```
-   -For Linux
-       ```
-       cd backend
-       bash runserver.sh
-             or
-       python3 -m venv venv
-       source venv/bin/activate
-       python manage.py runserver
-       ```
    ```
+   cd backend
+   python manage.py runserver
+   ```
+   -For Linux
+   ```
+   cd backend
+   bash runserver.sh
+         or
+   python3 -m venv venv
+   source venv/bin/activate
+   python manage.py runserver
+   ```
+
 
 ## 📂 Folder Structure
 ```
