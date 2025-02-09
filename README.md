@@ -14,6 +14,7 @@ This project is a **Phishing Awareness Campaign Website** designed to educate co
 - **Frontend:** React.js
 - **Backend:** Django
 - **Database:** sqlite
+- **UI/UX design:** figma
 
 ## 🏗️ Setup & Installation
 1. **Clone the Repository:**
