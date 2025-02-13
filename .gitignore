@@ -1,1 +1,14 @@
+# Ignore virtual environments
 backend/venv/
+
+# Ignore dependency directories
+node_modules/
+vendor/bundle/
+vendor/cache/
+vendor/gems/
+vendor/ruby/
+
+# Ignore log files and temporary files
+*.log
+*.tmp
+.DS_Store
