@@ -1,1 +1,9 @@
 backend/venv/
+node_modules/
+Gemfile
+Gemfile.lock
+package.json
+package-lock.json
+yarn.lock
+README.md
+LICENSE
